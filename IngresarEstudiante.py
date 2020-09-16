@@ -38,18 +38,7 @@ class Estudiante():
         testudiantes = (self.nombre, self.nota)
         estudia = list(testudiantes)
         lestudiantes.append(estudia)
-        for x in range(len(lestudiantes)):
-            templeados = lestudiantes[x]
-            print(f"ESTUDIANTE {x+1}")
-            self.nombre = templeados[0]
-            self.nota = templeados[1]
-            print(f"ESTUDIANTE {self.nombre}")
-            print(f"SU NOTA ES {self.nota}")
-            if  (self.nota >= 3 and self.nota <= 5):
-                print("APROBO")
-            else:
-                print("REPPROBO")
-
+        
 
 def menu():
     presentacion()
@@ -70,10 +59,8 @@ def menu():
             estudiantes = Estudiante()
         elif    opc == 2:
             print("IMPRIMIR DATOS")
-            # impr
         elif    opc == 3:
             print("CONSULTAR DATOS")
-            # consultarDatos()
         elif    opc == 4:
             print("GRACIAS POR VISITAR NUESTRO SOFTWARE")
             break
