@@ -1,8 +1,16 @@
 """
 ****************** TRABAJO SOBRE PYTHON ******************
-
 """
+
 import os
+global destudiantes
+global testudiantes
+global lestudiantes
+global destu
+destudiantes = {}
+testudiantes = ()
+lestudiantes = []
+destu = {}
 
 def presentacion():
     os.system("cls")
@@ -23,6 +31,56 @@ def presentacion():
     print("|                2020                  |")
     print("|______________________________________|")
 
+class Estudiante():
+    def __init__(self):
+        self.nombre = input("INGRESE EL NOMBRE DEL ESTUDIANTE: ")
+        self.nota = float(input("INGRESE LA NOTA DEL ESTUDIANTE: "))
+        testudiantes = (self.nombre, self.nota)
+        estudia = list(testudiantes)
+        lestudiantes.append(estudia)
+        
+    def ImprimirEstudiante(self):
+        print("****************************************")
+        print("|** __ IMPRIMIR ESTUDIANTE __ **|")
+        print("")
+        for x in range(len(lestudiantes)):
+            testudiantes = lestudiantes[x]
+            print(f"ESTUDIANTE {x+1}")
+            self.nombre = testudiantes[0]
+            self.nota = testudiantes[1]
+            print(f"ESTUDIANTE {self.nombre}")
+            print(f"SU NOTA ES {self.nota}")
+            if  (self.nota >= 3 and self.nota <= 5):
+                print("APROBO")
+                print("")
+            else:
+                print("REPPROBO")
+                print("")
+    
+    def ConsultarEstudiante(self):
+        print("****************************************")
+        print("|** __ CONSULTAR POR NOMBRE __ **|")
+        print("")
+        varia = int(len(lestudiantes))
+        x = 0
+        name = input("INGRESE EL NOMBRE DEL ESTUDIANTE: ")
+        while x < varia:
+            testudiantes = lestudiantes[x]
+            self.nombre = testudiantes[0]
+            self.nota = testudiantes[1]
+            if self.nombre in name:
+                print(f"ESTUDIANTE {self.nombre}")
+                print(f"SU NOTA ES {self.nota}")
+                if  (self.nota >= 3 and self.nota <= 5):
+                    print("APROBO")
+                else:
+                    print("REPPROBO")
+                x += varia
+            else:
+                print("ESTUDIANTE NO ENCONTRADO")
+                x += 1
+
+
 def menu():
     presentacion()
     os.system("pause")
@@ -39,13 +97,13 @@ def menu():
         opc = int(input("DIGITE LA OPCION QUE DESEA: "))
         if  opc == 1:
             print("INGRESAR DATOS")
-            # ingresarDatos()
+            estudiantes = Estudiante()
         elif    opc == 2:
             print("IMPRIMIR DATOS")
-            # imprimirDatos()
+            estudiantes.ImprimirEstudiante()
         elif    opc == 3:
             print("CONSULTAR DATOS")
-            # consultarDatos()
+            estudiantes.ConsultarEstudiante()
         elif    opc == 4:
             print("GRACIAS POR VISITAR NUESTRO SOFTWARE")
             break
